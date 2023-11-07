@@ -1,3 +1,4 @@
+import argparse
 import re
 
 def filter_logcat_file(input_file_path, output_file_path):
@@ -9,7 +10,10 @@ def filter_logcat_file(input_file_path, output_file_path):
                 output_file.write(line)
 
 if __name__ == '__main__':
-    input_file_path = "/path/to/your/input_logcat_file.log"  # Replace with the path to your input logcat file
-    output_file_path = "/path/to/your/output_filtered_logcat_file.log"  # Replace with the path to your output filtered logcat file
-    filter_logcat_file(input_file_path, output_file_path)
-    print(f"Filtered log messages saved to {output_file_path}.")
+    parser = argparse.ArgumentParser(description='Filter logcat file based on error or fatal messages.')
+    parser.add_argument('input_file_path', help='Path to the input logcat file')
+    parser.add_argument('output_file_path', help='Path to the output filtered logcat file')
+    args = parser.parse_args()
+
+    filter_logcat_file(args.input_file_path, args.output_file_path)
+    print(f"Filtered log messages saved to {args.output_file_path}.")
