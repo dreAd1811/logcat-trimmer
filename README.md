@@ -1,4 +1,6 @@
 # Logcat Trimmer
 Python Script to Trim PreSaved Logcats
 * This will trim logcats which u have already saved earlier
-* Edit Log.py to use correct path for logcat text file
+# Usage
+In Commend line, run <br>
+` python log.py <input-file-name> <output-file-name> `
