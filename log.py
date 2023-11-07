@@ -4,7 +4,7 @@ import re
 def filter_logcat_file(input_file_path, output_file_path):
     regex = re.compile(r'(.*)(error|fatal)(.*)', re.IGNORECASE)
 
-    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+    with open(input_file_path, 'r', encoding='utf-8', errors='ignore') as input_file, open(output_file_path, 'w', encoding='utf-8') as output_file:
         for line in input_file:
             if re.search(regex, line):
                 output_file.write(line)
